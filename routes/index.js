@@ -4,14 +4,13 @@ var model = require('../models/model');
 
 var date = new Date();
 var data = { 
-    title: 'Quickstart- Express', 
+    title: 'Websocket Chat', 
     lastUpdated: date.toDateString(),
-    subtitle: 'Base source for a Node/Express website'
+    subtitle: 'A simple chat application'
 };
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    
     res.render('index', data);
 });
 
