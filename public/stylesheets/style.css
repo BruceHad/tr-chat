@@ -4466,5 +4466,46 @@ footer {
   margin: 0 auto;
   width: 90px; }
 
-li small {
-  color: #999; }
+.col {
+  height: 80vh; }
+
+.alert a {
+  display: block;
+  text-align: center;
+  font-size: large;
+  color: black; }
+
+.alert-chat {
+  background-color: #D3C6C6;
+  width: 70%;
+  margin: 20px auto; }
+
+#chat-container input {
+  background-color: white;
+  width: 80%;
+  padding: 5px;
+  border: 0;
+  border-bottom: 1px solid #D3C6C6; }
+
+#chat-container button {
+  width: 20%;
+  border: 0;
+  background-color: #D3C6C6;
+  padding: 5px;
+  border-bottom: 1px solid #D3C6C6; }
+
+#messages {
+  list-style-type: none;
+  margin: 20px 0 0 0;
+  padding: 0;
+  height: 50vh;
+  overflow-y: scroll;
+  border-bottom: 1px solid #D3C6C6;
+  border-top: 1px solid #D3C6C6; }
+
+#messages li {
+  padding: 5px 10px;
+  background-color: #D3C6C6; }
+
+#messages li:nth-child(odd) {
+  background: #eee; }

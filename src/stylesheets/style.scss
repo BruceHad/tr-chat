@@ -11,7 +11,6 @@
 @import "bootstrap/normalize";
 // @import "bootstrap/print";
 // @import "bootstrap/glyphicons";
-
 // Core CSS
 @import "bootstrap/scaffolding";
 @import "bootstrap/type";
@@ -49,7 +48,6 @@
 // @import "bootstrap/tooltip";
 // @import "bootstrap/popovers";
 // @import "bootstrap/carousel";
-
 // Utility classes
 @import "bootstrap/utilities";
 @import "bootstrap/responsive-utilities";
@@ -60,72 +58,124 @@
  */
 
 $dark-background: #851919;
+$pale-background: #D3C6C6;
 
 body {
-    overflow: scroll;
-    border-top: 10px solid $dark-background;
+  overflow: scroll;
+  border-top: 10px solid $dark-background;
 }
 
 header {
-    ul {
-        list-style-position: inside;
-        list-style-type: '> ';
-        padding: 0;
-        margin: 10px 0 0 0;
-    }
-    h1 {
-        margin: 5px 0;
-        padding: 0;
-    }
+  ul {
+    list-style-position: inside;
+    list-style-type: '> ';
+    padding: 0;
+    margin: 10px 0 0 0;
+  }
+  h1 {
+    margin: 5px 0;
+    padding: 0;
+  }
 }
 
 footer {
-    opacity: 0;
+  opacity: 0;
+  color: white;
+  background-color: $dark-background;
+  padding: 5px 0;
+  transition: opacity 0.8s;
+  &:hover {
+    opacity: 1;
+  }
+  p {
+    margin: 2px 0;
+  }
+  a {
     color: white;
-    background-color: $dark-background;
-    padding: 5px 0;
-    transition: opacity 0.8s;
+    border-bottom: 1px dashed white;
     &:hover {
-        opacity: 1;
+      color: white;
+      text-decoration: none;
+      border: 0;
     }
-    p {
-        margin: 2px 0;
-    }
-    a {
-        color: white;
-        border-bottom: 1px dashed white;
-        &:hover {
-            color: white;
-            text-decoration: none;
-            border: 0;
-        }
-    }
-    i {
-        font-size: small;
-    }
+  }
+  i {
+    font-size: small;
+  }
 }
 
 .tr-main {
-    ul {
-        margin: 5px 0;
-        padding: 0;
-    }
-    li {
-        margin: 5px 0;
-        padding: 2px;
-    }
-    
-    .loading {
-        min-height: 50px;
-        line-height: 50px;
-    }
-    .loading-inner {
-        margin: 0 auto;
-        width: 90px;
-    }
+  ul {
+    margin: 5px 0;
+    padding: 0;
+  }
+  li {
+    margin: 5px 0;
+    padding: 2px;
+  }
+
+  .loading {
+    min-height: 50px;
+    line-height: 50px;
+  }
+  .loading-inner {
+    margin: 0 auto;
+    width: 90px;
+  }
 }
 
+.col {
+  height: 80vh;
+}
 
-li small {
-    color: #999;
+.alert a {
+  display: block;
+  text-align: center;
+  font-size: large;
+  color: black;
+}
+
+.alert-chat {
+  background-color: $pale-background;
+  width: 70%;
+  margin: 20px auto;
+}
+
+#chat-container {
+
+  input {
+    background-color: white;
+    width: 80%;
+    padding: 5px;
+    border: 0;
+    border-bottom: 1px solid $pale-background;
+  }
+
+  button {
+    width: 20%;
+    border: 0;
+    background-color: $pale-background;
+    padding: 5px;
+    border-bottom: 1px solid $pale-background;
+  }
+  
+}
+
+#messages {
+  list-style-type: none;
+  margin: 20px 0 0 0;
+  padding: 0;
+  height: 50vh;
+  overflow-y: scroll;
+  border-bottom: 1px solid $pale-background;
+  border-top: 1px solid $pale-background;
+}
+
+#messages li {
+  padding: 5px 10px;
+  background-color: $pale-background;
+}
+
+#messages li:nth-child(odd) {
+  background: #eee;
 }

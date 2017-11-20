@@ -4,11 +4,15 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var model = require('./models/model');
 
 var index = require('./routes/index');
-
-
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var validator = require('validator');
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,6 +45,27 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+io.on('connection', function(socket){
+  // console.log('A user connected', socket.id, socket.request.headers.referer);
+  var roomId = socket.request.headers.referer.split('/')[3];
+  
+  if(roomId){
+    model.joinRoom(roomId, socket.id);
+    io.emit('join', model.getRoom(roomId));
+  }
+  
+  socket.on('chat message', function(msg) {
+    io.emit('chat message', validator.trim(validator.escape(msg)), socket.id);
+  });
+  
+  
+});
+
+var port = 8080;
+http.listen(port, function() {
+  console.log('listening on *:', port);
 });
 
 module.exports = app;

@@ -1,12 +1,40 @@
 <div class="container">
-    <div class="row">
-        <div class="col col-md-6">
-            
-        </div>
-        <div class="col col-md-6">
-            <h2>Chat App</h2>
-            <p>A simple chat app for testing out <a href="</a>">websockets</a> and <a href="https://socket.io/get-started/chat/">socket.io</a>.
-            </p>
-        </div>
+  <div class="row">
+    <div class="col col-md-6">
+      {{#if chatting}}
+      <div id="chat-container">
+        <ul id="messages"></ul>
+        <form action="" id="chat-form">
+          <input id="m" autocomplete="off" autofocus /><button>Send</button>
+        </form>
+      </div>
+      {{else}}
+      <h2>Create Chat...</h2>
+      <div class="alert alert-chat"><a href="{{random}}">Create Chat Page</a></div>
+      <p>Instructions:</p>
+      <ul>
+        <li>Click button above to create a new chat room.</li>
+        <li>Send link to friends.</li>
+        <li>Start chatting.</li>
+      </ul>
+      {{/if}}
     </div>
+    <div class="col col-md-6">
+      {{#if chatting}}
+      <h2>Chat Room</h2>
+      <p>Share this link to this chat room:</p> 
+      <div class="alert alert-success" role="alert">
+        <p>{{url}}</p>
+      </div>
+      <h3>Who's connected:</h3>
+      <ul id="people">
+        <p>No-one yet...</p>
+      </ul>
+      {{/if}}
+      <h3>About</h3>
+      <p>This project was built to learn about websockets.</p>
+      <p>It is simple chatroom where multiple users can join and start chatting in real-time.</p>
+      <p>It's built with NodeJS and <a href="https://expressjs.com/">ExpressJS</a>, and uses <a href="</a>">websockets</a> (<a href="https://socket.io/get-started/chat/">socket.io</a>) for real-time updates.</p>
+    </div>
+  </div>
 </div>
