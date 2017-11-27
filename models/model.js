@@ -1,7 +1,7 @@
 var model = {}; 
 
 // Tables
-var rooms = {}; // e.g. {roomId: [userId, ]
+var rooms = {}; // e.g. {roomId: [{user}, ]
 var users = {}; // e.g. {userId: {name:,}
 
 model.getUser = function(userId) {
@@ -16,15 +16,21 @@ model.updateUserName = function(userId, name){
     console.log(users[userId]);
 };
 
-model.joinRoom = function(room, userId) {
+model.joinRoom = function(roomId, userId) {
     // Add new connection to room
-    if (room in rooms) {
-        rooms[room].push(model.getUser(userId));
+    if (roomId in rooms) {
+        var room = rooms[roomId];
+        // console.log("Room: ", room);
+        for (var j in room){
+            // console.log("Is in room?: ", room[j], userId);
+            if(room[j].id === userId) return; // do nothing
+        }
+        room.push(model.getUser(userId));
     }
     else {
-        rooms[room] = [model.getUser(userId), ];
+        rooms[roomId] = [model.getUser(userId), ];
     }
-    console.log('Model rooms', rooms);
+    // console.log('Model rooms', rooms);
 };
 
 model.getRoom = function(room) {
