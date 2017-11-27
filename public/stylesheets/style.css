@@ -4466,8 +4466,8 @@ footer {
   margin: 0 auto;
   width: 90px; }
 
-.col {
-  height: 80vh; }
+.align-right {
+  text-align: right; }
 
 .alert a {
   display: block;
@@ -4479,6 +4479,25 @@ footer {
   background-color: #D3C6C6;
   width: 70%;
   margin: 20px auto; }
+
+.user-details {
+  padding: 10px 0; }
+  .user-details #user-field {
+    padding: 5px;
+    margin: 0;
+    outline: 1px dotted #eee;
+    border: 0; }
+  .user-details #user-field:focus {
+    outline: 1px dotted black;
+    text-align: left; }
+  .user-details button {
+    padding: 5px;
+    margin: 0;
+    width: 70px;
+    text-transform: lowercase;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    color: #666; }
 
 #chat-container input {
   background-color: white;

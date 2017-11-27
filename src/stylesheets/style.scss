@@ -124,8 +124,8 @@ footer {
   }
 }
 
-.col {
-  height: 80vh;
+.align-right {
+  text-align: right;
 }
 
 .alert a {
@@ -139,6 +139,31 @@ footer {
   background-color: $pale-background;
   width: 70%;
   margin: 20px auto;
+}
+
+.user-details {
+  
+  padding: 10px 0;
+  
+  #user-field {
+    padding: 5px; margin: 0;
+    outline: 1px dotted #eee;
+    border: 0;
+  }
+  
+  #user-field:focus {
+    outline: 1px dotted black;
+    text-align: left;
+  }
+  
+  button {
+    padding:5px; margin: 0;
+    width: 70px;
+    text-transform: lowercase;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    color: #666;
+  }
 }
 
 #chat-container {
@@ -158,7 +183,7 @@ footer {
     padding: 5px;
     border-bottom: 1px solid $pale-background;
   }
-  
+
 }
 
 #messages {

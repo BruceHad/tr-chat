@@ -15,14 +15,22 @@
 
   <header>
     <div class='container'>
-      <nav>
-        <ul>
-          <li><a href='//treerock.me/'>home</a></li>
-          <li><a href='#'>github</a></li>
-        </ul>
-      </nav>
-      <h1><a href="/">{{ title }}</a></h1>
-      <p class="subtitle">{{ subtitle }}</p>
+      <div class="row">
+        <nav class="col col-md-8 top-nav">
+          <ul>
+            <li><a href='//treerock.me/'>home</a></li>
+            <li><a href='#'>github</a></li>
+          </ul>
+
+          <h1><a href="/">{{ title }}</a></h1>
+          <p class="subtitle">{{ subtitle }}</p>
+          
+        </nav>
+        
+        <div class="col col-md-4 align-right">
+          <div class="user-details">Hello <input type="text" size="10" id="user-field" readonly="true" value="{{user.name}}"> <button id="update-user-button">Change</button><button id="save-name" class="hidden">Save</button></div>
+        </div>
+      </div><!-- row -->
     </div>
   </header>
 

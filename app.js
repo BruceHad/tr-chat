@@ -3,6 +3,7 @@ var path = require('path');
 // var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var cookie = require('cookie');
 var bodyParser = require('body-parser');
 var model = require('./models/model');
 
@@ -38,6 +39,7 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
+  
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -45,20 +47,37 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+  
 });
 
+
 io.on('connection', function(socket){
-  // console.log('A user connected', socket.id, socket.request.headers.referer);
+  // console.log('Connection 1', socket.id, socket.request.headers.referer);
   var roomId = socket.request.headers.referer.split('/')[3];
+  var ck = socket.request.headers.cookie;
+  var userId = cookie.parse(ck).userId;
+  console.log('userId connected', userId);
   
-  if(roomId){
-    model.joinRoom(roomId, socket.id);
-    io.emit('join', model.getRoom(roomId));
-  }
+  
+  if(roomId && userId){
+    if(!model.inRoom(roomId, userId)){
+      // console.log('Add ', userId, ' to room ', roomId);
+      model.joinRoom(roomId, userId);
+    }
+    io.emit('join', {
+      "room": model.getRoom(roomId),
+      "user": model.getUser(userId)
+    });
+  } 
   
   socket.on('chat message', function(msg) {
-    io.emit('chat message', validator.trim(validator.escape(msg)), socket.id);
+    var userName = model.getUser(userId).name;
+    io.emit('chat message', validator.trim(validator.escape(msg)), userName);
   });
+  
+  // socket.on('update username', function(user){
+  //   console.log(user);
+  // });
   
   
 });
