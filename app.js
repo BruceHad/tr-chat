@@ -83,8 +83,8 @@ io.on('connection', function(socket){
 });
 
 var port = 8080;
-http.listen(port, function() {
-  console.log('listening on *:', port);
+http.listen(process.env.port || port, function() {
+  console.log('listening on *:', this.address().port, app.settings.env);
 });
 
 module.exports = app;

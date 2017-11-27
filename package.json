@@ -1,9 +1,9 @@
 {
-  "name": "ejs-skill-sharing",
+  "name": "tr-chat",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "gulp": "gulp",
     "dev": "gulp & nodemon app.js &"
   },
