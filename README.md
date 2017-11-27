@@ -1,6 +1,6 @@
-Quickstart - Express
-====================
+My Chat App
+===========
 
-2017-11-06
+2017-11-27
 
-Base files for quickly starting a Node/Express web project.
+Testing out a chat application using Websockets for real-time communication.
