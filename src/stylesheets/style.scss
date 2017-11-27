@@ -57,12 +57,12 @@
  * Treerock Styles
  */
 
-$dark-background: #851919;
-$pale-background: #D3C6C6;
+$dark: #851919;
+$pale: #D3C6C6;
 
 body {
   overflow: scroll;
-  border-top: 10px solid $dark-background;
+  border-top: 10px solid $dark;
 }
 
 header {
@@ -81,7 +81,7 @@ header {
 footer {
   opacity: 0;
   color: white;
-  background-color: $dark-background;
+  background-color: $dark;
   padding: 5px 0;
   transition: opacity 0.8s;
   &:hover {
@@ -136,28 +136,30 @@ footer {
 }
 
 .alert-chat {
-  background-color: $pale-background;
+  background-color: $pale;
   width: 70%;
   margin: 20px auto;
 }
 
 .user-details {
-  
+
   padding: 10px 0;
-  
+
   #user-field {
-    padding: 5px; margin: 0;
+    padding: 5px;
+    margin: 0;
     outline: 1px dotted #eee;
     border: 0;
   }
-  
+
   #user-field:focus {
     outline: 1px dotted black;
     text-align: left;
   }
-  
+
   button {
-    padding:5px; margin: 0;
+    padding: 5px;
+    margin: 0;
     width: 70px;
     text-transform: lowercase;
     border: 1px solid #ddd;
@@ -167,40 +169,42 @@ footer {
 }
 
 #chat-container {
-
+  input,
+  button {
+    display: block;
+    float: left;
+    height: 2em;
+  }
   input {
     background-color: white;
+    border: 1px solid $dark;
     width: 80%;
-    padding: 5px;
-    border: 0;
-    border-bottom: 1px solid $pale-background;
+    padding: 0px 5px;
+    margin: 0px;
   }
 
   button {
     width: 20%;
     border: 0;
-    background-color: $pale-background;
-    padding: 5px;
-    border-bottom: 1px solid $pale-background;
+    background-color: $dark;
+    color: white;
+    padding: 0px;
+    margin: 0px;
+    border: 0;
   }
-
-}
-
-#messages {
-  list-style-type: none;
-  margin: 20px 0 0 0;
-  padding: 0;
-  height: 50vh;
-  overflow-y: scroll;
-  border-bottom: 1px solid $pale-background;
-  border-top: 1px solid $pale-background;
-}
-
-#messages li {
-  padding: 5px 10px;
-  background-color: $pale-background;
-}
-
-#messages li:nth-child(odd) {
-  background: #eee;
+  #messages {
+    list-style-type: none;
+    margin: 20px 0 10px 0;
+    padding: 0;
+    height: 50vh;
+    overflow-y: scroll;
+    border: 1px solid $dark;
+  }
+  #messages li {
+    padding: 5px 10px;
+    background-color: $pale;
+  }
+  #messages li:nth-child(odd) {
+    background: #eee;
+  }
 }
